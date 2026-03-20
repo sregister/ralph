@@ -13,24 +13,33 @@ Create detailed Product Requirements Documents that are clear, actionable, and s
 ## The Job
 
 1. Receive a feature description from the user
-2. Ask 3-5 essential clarifying questions (with lettered options)
-3. Generate a structured PRD based on answers
-4. Save to `tasks/prd-[feature-name].md`
+2. Facilitate a collaborative brainstorming discussion with the user
+3. Ask 3-5 targeted questions per round, then wait for answers
+4. Produce a PRD draft (in chat context and/or `tasks/prd-[feature-name].md`)
+5. Iterate on the draft using user feedback or another question round
+6. Save the accepted version to `tasks/prd-[feature-name].md`
 
 **Important:** Do NOT start implementing. Just create the PRD.
 
 ---
 
-## Step 1: Clarifying Questions
+## Step 1: Brainstorming Questions
 
-Ask only critical questions where the initial prompt is ambiguous. Focus on:
+Run this as a discussion, not a one-shot form. Ask only critical questions where the prompt is ambiguous. Focus on:
 
 - **Problem/Goal:** What problem does this solve?
 - **Core Functionality:** What are the key actions?
 - **Scope/Boundaries:** What should it NOT do?
 - **Success Criteria:** How do we know it's done?
 
-### Format Questions Like This:
+### Question Cadence
+
+- Ask **3-5 questions per round**
+- Keep questions concise and high signal
+- After each round, summarize what you learned before continuing
+- If the user asks for another round, ask 3-5 additional questions that resolve remaining ambiguity
+
+### Question Format (Preferred)
 
 ```
 1. What is the primary goal of this feature?
@@ -52,11 +61,33 @@ Ask only critical questions where the initial prompt is ambiguous. Focus on:
    D. Just the UI
 ```
 
-This lets users respond with "1A, 2C, 3B" for quick iteration. Remember to indent the options.
+Lettered options are preferred for fast replies (e.g., "1A, 2C, 3B"), but free-form answers are also valid.
+
+If your agent environment provides an official question/answer tool (for example, structured question prompts in OpenCode or Claude Code), use that tool as the primary way to collect feedback instead of relying on the "1A, 2C" response pattern.
+
+Use lettered options mainly as a fallback when no dedicated question tool is available.
+
+Open-ended questions are allowed and encouraged when options would be constraining; a round may include a mix of multiple-choice and open-ended prompts, and some rounds may have few or no predefined options.
 
 ---
 
-## Step 2: PRD Structure
+## Step 2: Draft + Feedback Loop
+
+After each answer round:
+
+1. Summarize confirmed decisions and assumptions
+2. Produce or update a PRD draft
+3. Ask the user to either:
+   - provide feedback on the draft, or
+   - request another question round
+
+If the draft is not acceptable, incorporate feedback and revise. Continue until the user confirms the PRD is acceptable.
+
+You may keep an in-chat draft during brainstorming. When content is stable enough, write/update `tasks/prd-[feature-name].md`.
+
+---
+
+## Step 3: PRD Structure
 
 Generate the PRD with these sections:
 
@@ -137,6 +168,7 @@ The PRD reader may be a junior developer or AI agent. Therefore:
 - **Format:** Markdown (`.md`)
 - **Location:** `tasks/`
 - **Filename:** `prd-[feature-name].md` (kebab-case)
+- **Workflow:** Draft in context or file, revise via feedback rounds, then save final accepted draft
 
 ---
 
@@ -233,8 +265,9 @@ Add priority levels to tasks so users can focus on what matters most. Tasks can 
 
 Before saving the PRD:
 
-- [ ] Asked clarifying questions with lettered options
-- [ ] Incorporated user's answers
+- [ ] Ran brainstorming rounds (3-5 questions per round)
+- [ ] Incorporated user's answers and feedback
+- [ ] Offered another question round when ambiguity remained
 - [ ] User stories are small and specific
 - [ ] Functional requirements are numbered and unambiguous
 - [ ] Non-goals section defines clear boundaries
