@@ -1,10 +1,10 @@
 # Ralph
 
-![Ralph](ralph.webp)
-
 Ralph is an autonomous AI agent loop that runs AI coding tools ([OpenCode](https://opencode.ai) or [Claude Code](https://docs.anthropic.com/en/docs/claude-code)) repeatedly until all PRD items are complete. Each iteration is a fresh instance with clean context. Memory persists via git history, `progress.txt`, and `prd.json`.
 
 Based on [Geoffrey Huntley's Ralph pattern](https://ghuntley.com/ralph/).
+
+This repository is forked from [snarktank/ralph](https://github.com/snarktank/ralph).
 
 [Read my in-depth article on how I use Ralph](https://x.com/ryancarson/status/2008548371712135632)
 
