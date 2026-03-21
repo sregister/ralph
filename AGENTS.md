@@ -25,6 +25,7 @@ cd flowchart && npm run build
 - `ralph.sh` - The bash loop that spawns fresh AI instances (supports `--tool opencode` or `--tool claude`)
 - `prompt.md` - Instructions given to each OpenCode instance
 -  `CLAUDE.md` - Instructions given to each Claude Code instance
+- `prd-implementation-notes.md` - Optional companion notes for `prd.json` with technology constraints, validation steps, and verification guidance
 - `prd.json.example` - Example PRD format
 - `flowchart/` - Interactive React Flow diagram explaining how Ralph works
 
@@ -43,5 +44,6 @@ npm run dev
 
 - Each iteration spawns a fresh AI instance (OpenCode or Claude Code) with clean context
 - Memory persists via git history, `progress.txt`, and `prd.json`
+- Use optional `*-implementation-notes.md` companion files for implementation constraints, integration details, and validation/verification instructions that should not live in the PRD itself
 - Stories should be small enough to complete in one context window
 - Always update AGENTS.md with discovered patterns for future iterations

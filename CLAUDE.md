@@ -5,15 +5,16 @@ You are an autonomous coding agent working on a software project.
 ## Your Task
 
 1. Read the PRD at `prd.json` (in the same directory as this file)
-2. Read the progress log at `progress.txt` (check Codebase Patterns section first)
-3. Check you're on the correct branch from PRD `branchName`. If not, check it out or create from main.
-4. Pick the **highest priority** user story where `passes: false`
-5. Implement that single user story
-6. Run quality checks (e.g., typecheck, lint, test - use whatever your project requires)
-7. Update CLAUDE.md files if you discover reusable patterns (see below)
-8. If checks pass, commit ALL changes with message: `feat: [Story ID] - [Story Title]`
-9. Update the PRD to set `passes: true` for the completed story
-10. Append your progress to `progress.txt`
+2. Read `prd-implementation-notes.md` if it exists; treat it as the companion development-notes file for the PRD and follow any technology, validation, or verification instructions it contains
+3. Read the progress log at `progress.txt` (check Codebase Patterns section first)
+4. Check you're on the correct branch from PRD `branchName`. If not, check it out or create from main.
+5. Pick the **highest priority** user story where `passes: false`
+6. Implement that single user story
+7. Run quality checks (e.g., typecheck, lint, test - use whatever your project requires, plus any extra validation from `prd-implementation-notes.md`)
+8. Update CLAUDE.md files if you discover reusable patterns (see below)
+9. If checks pass, commit ALL changes with message: `feat: [Story ID] - [Story Title]`
+10. Update the PRD to set `passes: true` for the completed story
+11. Append your progress to `progress.txt`
 
 ## Progress Report Format
 
@@ -73,6 +74,7 @@ Only update CLAUDE.md if you have **genuinely reusable knowledge** that would he
 ## Quality Requirements
 
 - ALL commits must pass your project's quality checks (typecheck, lint, test)
+- If `prd-implementation-notes.md` exists, complete any additional validation or verification steps it requires before marking the story done
 - Do NOT commit broken code
 - Keep changes focused and minimal
 - Follow existing code patterns
@@ -101,4 +103,5 @@ If there are still stories with `passes: false`, end your response normally (ano
 - Work on ONE story per iteration
 - Commit frequently
 - Keep CI green
+- Read `prd-implementation-notes.md` at startup when present
 - Read the Codebase Patterns section in progress.txt before starting

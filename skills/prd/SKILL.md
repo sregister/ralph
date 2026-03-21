@@ -18,6 +18,7 @@ Create detailed Product Requirements Documents that are clear, actionable, and s
 4. Produce a PRD draft (in chat context and/or `tasks/prd-[feature-name].md`)
 5. Iterate on the draft using user feedback or another question round
 6. Save the accepted version to `tasks/prd-[feature-name].md`
+7. Offer to create a companion `tasks/prd-[feature-name]-implementation-notes.md` when the feature needs extra implementation guidance
 
 **Important:** Do NOT start implementing. Just create the PRD.
 
@@ -84,6 +85,29 @@ After each answer round:
 If the draft is not acceptable, incorporate feedback and revise. Continue until the user confirms the PRD is acceptable.
 
 You may keep an in-chat draft during brainstorming. When content is stable enough, write/update `tasks/prd-[feature-name].md`.
+
+---
+
+## Optional Companion File: Implementation Notes
+
+If the feature has non-trivial implementation constraints, validation requirements, or integration details, offer to create a companion implementation-notes file alongside the PRD.
+
+Use a companion file when details like these would clutter the PRD:
+
+- Required language, framework, or tooling choices
+- Architecture constraints or required reuse points
+- External system integration notes
+- Environment setup prerequisites
+- Integration/system-test strategy
+- Runtime validation or verification instructions
+
+Filename rule:
+
+- `tasks/prd-[feature-name].md` -> `tasks/prd-[feature-name]-implementation-notes.md`
+
+For Ralph's root workflow, this same pattern becomes `prd.json` + `prd-implementation-notes.md`.
+
+The companion file should focus on implementation guidance, not product scope. If you create it, mention it clearly when presenting the PRD draft.
 
 ---
 
@@ -169,6 +193,7 @@ The PRD reader may be a junior developer or AI agent. Therefore:
 - **Location:** `tasks/`
 - **Filename:** `prd-[feature-name].md` (kebab-case)
 - **Workflow:** Draft in context or file, revise via feedback rounds, then save final accepted draft
+- **Optional companion file:** `prd-[feature-name]-implementation-notes.md` when implementation constraints or validation details need their own document
 
 ---
 
@@ -272,3 +297,4 @@ Before saving the PRD:
 - [ ] Functional requirements are numbered and unambiguous
 - [ ] Non-goals section defines clear boundaries
 - [ ] Saved to `tasks/prd-[feature-name].md`
+- [ ] Offered or created `tasks/prd-[feature-name]-implementation-notes.md` when implementation guidance warranted a companion file
